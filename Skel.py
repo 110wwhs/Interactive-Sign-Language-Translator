@@ -13,6 +13,9 @@ while cap.isOpened():
     if not ret:
         continue
     
+    # 카메라 화면 좌우 반전
+    frame = cv2.flip(frame, 1)
+    
     # 손 감지 수행
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(frame_rgb)
@@ -24,7 +27,7 @@ while cap.isOpened():
             for finger_landmark in hand_landmarks.landmark:
                 x = int(finger_landmark.x * frame.shape[1])
                 y = int(finger_landmark.y * frame.shape[0])
-                cv2.circle(frame, (x, y), 5, (0, 4, 255), -1)
+                cv2.circle(frame, (x, y), 5, (0, 255, 0), -1)
     
     # 손이 감지되지 않은 경우, 화면에 메시지 표시
     else:
