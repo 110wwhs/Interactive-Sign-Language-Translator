@@ -3,7 +3,7 @@ import mediapipe as mp
 
 # 손 감지 모듈 초기화
 mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(static_image_mode=False, max_num_hands=2, min_detection_confidence=0.5)
+hands = mp_hands.Hands(static_image_mode=False, max_num_hands=2, min_detection_confidence=0.1)
 
 # 화면 캡처 장치 초기화
 cap = cv2.VideoCapture(0)
